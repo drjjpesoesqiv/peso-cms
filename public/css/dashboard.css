@@ -1,0 +1,101 @@
+iframe {
+  border: none;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#topPanel {
+  align-items: center;
+  background-color: #666;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 8px 0;
+  width: 100%;
+}
+
+#topPanel button {
+  background-color: #eee;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #111;
+  margin: 0 4px;
+  min-width: 32px;
+  padding: 4px 8px;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.CodeMirror {
+  flex-grow: 1;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+#preview {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+#options_overlay {
+  background-color: skyblue;
+  color: #111;
+  padding: 16px;
+}
+
+p label {
+  width: 64px;
+  float: left;
+}
+
+p select option { padding: 4px; }
+
+#browser {
+  background-color: #ddd;
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+}
+
+#browser_window {
+  flex-grow: 1;
+}
+
+#browser .toolbar {
+  padding: 4px;
+  font-family: "Arial";
+}
+
+#options_overlay {
+  font-size: small;
+}

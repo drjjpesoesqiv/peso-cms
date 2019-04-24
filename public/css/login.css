@@ -1,0 +1,31 @@
+body {
+  background-color: #eee;
+  font-family: sans-serif;
+}
+#error {
+  color: red;
+}
+
+#loginContent {
+  margin: 0px auto;
+  margin-top: 32px;
+  width: 360px;
+}
+
+#loginForm input {
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #111;
+  margin: 16px 0;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+#loginForm button {
+  background-color: #eee;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #111;
+  padding: 4px 8px;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "peso-cms",
+  "version": "1.0.0",
+  "description": "a cms with an editor",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drjjpesoesqiv/peso-cms.git"
+  },
+  "author": "jjpeso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drjjpesoesqiv/peso-cms/issues"
+  },
+  "homepage": "https://github.com/drjjpesoesqiv/peso-cms#readme",
+  "dependencies": {
+    "express": "4.16.4",
+    "express-session": "1.16.1",
+    "mongodb": "3.2.3"
+  }
+}

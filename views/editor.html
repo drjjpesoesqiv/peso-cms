@@ -1,0 +1,203 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="../css/dashboard.css" />
+  <link rel="stylesheet" type="text/css" href="../codemirror/lib/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="../codemirror/addon/hint/show-hint.css" />
+  <link rel="stylesheet" type="text/css" href="../codemirror/addon/display/fullscreen.css">
+  
+  <script src="../js/jquery-3.4.0.min.js"></script>
+  <script src="../js/dashboard/app.js"></script>
+  <script src="../js/dashboard/editor.js"></script>
+  <script src="../js/dashboard/options.js"></script>
+  <script src="../js/dashboard/browser.js"></script>
+  <script src="../codemirror/lib/codemirror.js"></script>
+  <script src="../codemirror/addon/hint/show-hint.js"></script>
+  <script src="../codemirror/addon/hint/html-hint.js"></script>
+  <script src="../codemirror/addon/hint/css-hint.js"></script>
+  <script src="../codemirror/addon/hint/javascript-hint.js"></script>
+
+  <script src="../codemirror/addon/selection/active-line.js"></script>
+  <script src="../codemirror/addon/edit/matchbrackets.js"></script>
+  <script src="../codemirror/addon/display/fullscreen.js"></script>
+
+  <script src="../codemirror/mode/xml/xml.js"></script>
+  <script src="../codemirror/mode/css/css.js"></script>
+  <script src="../codemirror/mode/javascript/javascript.js"></script>
+</head>
+<body>
+
+<link rel="stylesheet" href="../codemirror/theme/3024-day.css">
+<link rel="stylesheet" href="../codemirror/theme/3024-night.css">
+<link rel="stylesheet" href="../codemirror/theme/abcdef.css">
+<link rel="stylesheet" href="../codemirror/theme/ambiance.css">
+<link rel="stylesheet" href="../codemirror/theme/base16-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/bespin.css">
+<link rel="stylesheet" href="../codemirror/theme/base16-light.css">
+<link rel="stylesheet" href="../codemirror/theme/blackboard.css">
+<link rel="stylesheet" href="../codemirror/theme/cobalt.css">
+<link rel="stylesheet" href="../codemirror/theme/colorforth.css">
+<link rel="stylesheet" href="../codemirror/theme/dracula.css">
+<link rel="stylesheet" href="../codemirror/theme/duotone-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/duotone-light.css">
+<link rel="stylesheet" href="../codemirror/theme/eclipse.css">
+<link rel="stylesheet" href="../codemirror/theme/elegant.css">
+<link rel="stylesheet" href="../codemirror/theme/erlang-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/gruvbox-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/hopscotch.css">
+<link rel="stylesheet" href="../codemirror/theme/icecoder.css">
+<link rel="stylesheet" href="../codemirror/theme/isotope.css">
+<link rel="stylesheet" href="../codemirror/theme/lesser-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/liquibyte.css">
+<link rel="stylesheet" href="../codemirror/theme/lucario.css">
+<link rel="stylesheet" href="../codemirror/theme/material.css">
+<link rel="stylesheet" href="../codemirror/theme/mbo.css">
+<link rel="stylesheet" href="../codemirror/theme/mdn-like.css">
+<link rel="stylesheet" href="../codemirror/theme/midnight.css">
+<link rel="stylesheet" href="../codemirror/theme/monokai.css">
+<link rel="stylesheet" href="../codemirror/theme/neat.css">
+<link rel="stylesheet" href="../codemirror/theme/neo.css">
+<link rel="stylesheet" href="../codemirror/theme/night.css">
+<link rel="stylesheet" href="../codemirror/theme/nord.css">
+<link rel="stylesheet" href="../codemirror/theme/oceanic-next.css">
+<link rel="stylesheet" href="../codemirror/theme/panda-syntax.css">
+<link rel="stylesheet" href="../codemirror/theme/paraiso-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/paraiso-light.css">
+<link rel="stylesheet" href="../codemirror/theme/pastel-on-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/railscasts.css">
+<link rel="stylesheet" href="../codemirror/theme/rubyblue.css">
+<link rel="stylesheet" href="../codemirror/theme/seti.css">
+<link rel="stylesheet" href="../codemirror/theme/shadowfox.css">
+<link rel="stylesheet" href="../codemirror/theme/solarized.css">
+<link rel="stylesheet" href="../codemirror/theme/the-matrix.css">
+<link rel="stylesheet" href="../codemirror/theme/tomorrow-night-bright.css">
+<link rel="stylesheet" href="../codemirror/theme/tomorrow-night-eighties.css">
+<link rel="stylesheet" href="../codemirror/theme/ttcn.css">
+<link rel="stylesheet" href="../codemirror/theme/twilight.css">
+<link rel="stylesheet" href="../codemirror/theme/vibrant-ink.css">
+<link rel="stylesheet" href="../codemirror/theme/xq-dark.css">
+<link rel="stylesheet" href="../codemirror/theme/xq-light.css">
+<link rel="stylesheet" href="../codemirror/theme/yeti.css">
+<link rel="stylesheet" href="../codemirror/theme/idea.css">
+<link rel="stylesheet" href="../codemirror/theme/darcula.css">
+<link rel="stylesheet" href="../codemirror/theme/zenburn.css">
+
+<!-- -->
+
+<select id="theme_selections_proto" style="display: none;">
+<option value="default" selected>default</option>
+<option value="3024-day">3024-day</option>
+<option value="3024-night">3024-night</option>
+<option value="abcdef">abcdef</option>
+<option value="ambiance">ambiance</option>
+<option value="base16-dark">base16-dark</option>
+<option value="base16-light">base16-light</option>
+<option value="bespin">bespin</option>
+<option value="blackboard">blackboard</option>
+<option value="cobalt">cobalt</option>
+<option value="colorforth">colorforth</option>
+<option value="darcula">darcula</option>
+<option value="dracula">dracula</option>
+<option value="duotone-dark">duotone-dark</option>
+<option value="duotone-light">duotone-light</option>
+<option value="eclipse">eclipse</option>
+<option value="elegant">elegant</option>
+<option value="erlang-dark">erlang-dark</option>
+<option value="gruvbox-dark">gruvbox-dark</option>
+<option value="hopscotch">hopscotch</option>
+<option value="icecoder">icecoder</option>
+<option value="idea">idea</option>
+<option value="isotope">isotope</option>
+<option value="lesser-dark">lesser-dark</option>
+<option value="liquibyte">liquibyte</option>
+<option value="lucario">lucario</option>
+<option value="material">material</option>
+<option value="mbo">mbo</option>
+<option value="mdn-like">mdn-like</option>
+<option value="midnight">midnight</option>
+<option value="monokai">monokai</option>
+<option value="neat">neat</option>
+<option value="neo">neo</option>
+<option value="night">night</option>
+<option value="nord">nord</option>
+<option value="oceanic-next">oceanic-next</option>
+<option value="panda-syntax">panda-syntax</option>
+<option value="paraiso-dark">paraiso-dark</option>
+<option value="paraiso-light">paraiso-light</option>
+<option value="pastel-on-dark">pastel-on-dark</option>
+<option value="railscasts">railscasts</option>
+<option value="rubyblue">rubyblue</option>
+<option value="seti">seti</option>
+<option value="shadowfox">shadowfox</option>
+<option value="solarized dark">solarized dark</option>
+<option value="solarized light">solarized light</option>
+<option value="the-matrix">the-matrix</option>
+<option value="tomorrow-night-bright">tomorrow-night-bright</option>
+<option value="tomorrow-night-eighties">tomorrow-night-eighties</option>
+<option value="ttcn">ttcn</option>
+<option value="twilight">twilight</option>
+<option value="vibrant-ink">vibrant-ink</option>
+<option value="xq-dark">xq-dark</option>
+<option value="xq-light">xq-light</option>
+<option value="yeti">yeti</option>
+<option value="zenburn">zenburn</option>
+</select>
+
+<!-- -->
+
+<div id="container">
+  <div id="topPanel">
+    <button onclick="App.new();">NEW</button>
+    <button onclick="App.toggleOptions();">OPTIONS</button>
+    <button onclick="App.preview();">PREVIEW</button>
+    <button onclick="App.save();">SAVE</button>
+    <button onclick="App.load();">LOAD</button>
+    <input type="text" id="title" placeholder="title" />
+    
+    <button onclick="App.toggleLeftPanels();">L</button>
+    <button onclick="App.toggleRightPanels();">R</button>
+
+    <button onclick="App.toggleLang('html');">html</button>
+    <button onclick="App.toggleLang('json');">json</button>
+    <button onclick="App.toggleLang('css');">css</button>
+    <button onclick="App.toggleLang('js');">js</button>
+    <button onclick="App.toggleBrowserPanel();">B</button>
+    <button onclick="App.toggleIconPanel()">I</button>
+</div>
+
+<div id="content">
+  <div id="left">
+    <textarea id="textarea_html"></textarea>
+    <textarea id="textarea_css"></textarea>
+    <textarea id="textarea_js"></textarea>
+    <textarea id="textarea_json"></textarea>
+  </div>
+  <div id="right">
+    <iframe src="" id="preview"></iframe>
+    
+    <textarea id="iconPanel"></textarea>
+
+    <div id="browserPanel" style="display: none;">
+      <div class="toolbar">
+        <input id="browser_url" type="text" size=64 />
+        <button id="browser_go" onclick="Browser.go();">GO</button>
+      </div>
+      <iframe src="" id="browser_window"></iframe>
+    </div>
+
+    <div id="options_overlay" style="display: none;">
+        <form id="options_form">
+          <p><label>html</label><select id="options_theme_html" name="options_theme_html" onchange="App.selectTheme(this, 'html');"></select></p>
+          <p><label>json</label><select id="options_theme_json" name="options_theme_json" onchange="App.selectTheme(this, 'json');"></select></p>
+          <p><label>css</label><select id="options_theme_css" name="options_theme_css" onchange="App.selectTheme(this, 'css');"></select></p>
+          <p><label>js</label><select id="options_theme_js" name="options_theme_js" onchange="App.selectTheme(this, 'js');"></select></p>
+        </form>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
