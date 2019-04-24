@@ -162,7 +162,7 @@ var App = {
       url: '/editor/load',
       success: function(page) {
         ['html','css','js','json'].forEach(function(lang) {
-          if (typeof page.html != 'undefined')
+          if (typeof page[lang] != 'undefined')
             thisApp.editors[lang].setValue(page[lang]);
         });
 
