@@ -41,14 +41,16 @@ var App = {
   /*
    *
    */
-  toggleLang: function(lang) {
+  toggleLang: function(el, lang) {
+    $(el).toggleClass('active');
     this.editors[lang].toggle();
   },
 
   /*
    *
    */
-  toggleLeftPanels: function() {
+  toggleLeftPanels: function(el) {
+    $(el).toggleClass('active');
     $('#leftPanels').toggle();
 
     var rightBasis = $('#leftPanels').is(':hidden') ? '100%' : '50%';
@@ -58,7 +60,8 @@ var App = {
   /*
    *
    */
-  toggleRightPanels: function() {
+  toggleRightPanels: function(el) {
+    $(el).toggleClass('active');
     $('#rightPanels').toggle();
     
     var leftBasis = $('#rightPanels').is(':hidden') ? '100%' : '50%';
@@ -68,14 +71,16 @@ var App = {
   /*
    *
    */
-  toggleIconPanel: function() {
+  toggleIconPanel: function(el) {
+    $(el).toggleClass('active');
     $('#iconPanel').toggle();
   },
 
   /*
    *
    */
-  toggleBrowserPanel: function() {
+  toggleBrowserPanel: function(el) {
+    $(el).toggleClass('active');
     $('#browserPanel').toggle();
   },
 

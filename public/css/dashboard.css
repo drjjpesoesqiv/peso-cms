@@ -37,13 +37,17 @@ body {
   padding: 4px 8px;
 }
 
+#topPanel button.active {
+  background-color: #dd9900;
+}
+
 #content {
   display: flex;
   flex-direction: row;
   height: 100%;
 }
 
-#left {
+#leftPanels {
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
@@ -54,7 +58,7 @@ body {
   flex-grow: 1;
 }
 
-#right {
+#rightPanels {
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
@@ -80,7 +84,7 @@ p label {
 
 p select option { padding: 4px; }
 
-#browser {
+#browserPanel {
   background-color: #ddd;
   display: flex;
   flex-basis: 50%;

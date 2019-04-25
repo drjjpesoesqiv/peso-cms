@@ -36,6 +36,9 @@ Editor.prototype = {
       theme: theme,
       htmlMode: (syntax == 'xml') ? true : false,
       extraKeys: {
+        "Alt-F": function(cm) {
+          cm.setOption("fullScreen", ! cm.getOption("fullScreen"));
+        },
         "F11": function(cm) {
           cm.setOption("fullScreen", ! cm.getOption("fullScreen"));
         },

@@ -155,25 +155,25 @@
     <button onclick="App.load();">LOAD</button>
     <input type="text" id="title" placeholder="title" />
     
-    <button onclick="App.toggleLeftPanels();">L</button>
-    <button onclick="App.toggleRightPanels();">R</button>
+    <button onclick="App.toggleLeftPanels(this);" class="active">L</button>
+    <button onclick="App.toggleRightPanels(this);" class="active">R</button>
 
-    <button onclick="App.toggleLang('html');">html</button>
-    <button onclick="App.toggleLang('json');">json</button>
-    <button onclick="App.toggleLang('css');">css</button>
-    <button onclick="App.toggleLang('js');">js</button>
-    <button onclick="App.toggleBrowserPanel();">B</button>
-    <button onclick="App.toggleIconPanel()">I</button>
+    <button onclick="App.toggleLang(this, 'html');" class="active">html</button>
+    <button onclick="App.toggleLang(this, 'json');" class="active">json</button>
+    <button onclick="App.toggleLang(this, 'css');" class="active">css</button>
+    <button onclick="App.toggleLang(this, 'js');" class="active">js</button>
+    <button onclick="App.toggleBrowserPanel(this);">B</button>
+    <button onclick="App.toggleIconPanel(this)" class="active">I</button>
 </div>
 
 <div id="content">
-  <div id="left">
+  <div id="leftPanels">
     <textarea id="textarea_html"></textarea>
     <textarea id="textarea_css"></textarea>
     <textarea id="textarea_js"></textarea>
     <textarea id="textarea_json"></textarea>
   </div>
-  <div id="right">
+  <div id="rightPanels">
     <iframe src="" id="preview"></iframe>
     
     <textarea id="iconPanel"></textarea>
