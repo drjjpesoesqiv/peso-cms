@@ -39,6 +39,16 @@ router.post('/login', (req, res) => {
   res.send(new Result().succeed().json());
 });
 
+router.get('/list/:page', (req, res) => {
+  if ( ! checkAdmin(req, res)) { res.sendStatus(404); return; }
+
+  req.app.locals.mongo.getTitles('pages', 100, req.params['page']).then(function(docs) {
+    res.send(docs);
+  }).catch(function(err) {
+    res.send(new Result().error(err).json());
+  });
+});
+
 /*
  *
  */
