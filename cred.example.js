@@ -1,5 +1,5 @@
 var cred = {
-  editor: {
+  dashboard: {
     user: 'ihave',
     pass: 'yoursecrets'
   },

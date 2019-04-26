@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-app.use('/editor/', require('./routes/editor.js'));
+app.use('/dashboard/', require('./routes/dashboard.js'));
 
 // mongo
 var mongo = require('./lib/mongo.js');

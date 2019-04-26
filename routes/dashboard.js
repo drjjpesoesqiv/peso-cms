@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 var cred = require('../cred.js');
 var Result = require('../lib/result.js');
 
@@ -10,8 +8,8 @@ var router = express.Router();
  *
  */
 function checkCred(user, pass) {
-  return user == cred.editor.user
-      && pass == cred.editor.pass
+  return user == cred.dashboard.user
+      && pass == cred.dashboard.pass
 }
 
 /*
@@ -24,7 +22,7 @@ function checkAdmin(req) {
 /*
  *
  */
-router.get('/dashboard', (req, res) => {
+router.get('/', (req, res) => {
   let template = ( ! checkAdmin(req, res))
     ? 'login'
     : 'dashboard';

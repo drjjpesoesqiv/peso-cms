@@ -145,7 +145,7 @@ var App = {
     $.ajax({
       type: 'post',
       data: { data: data },
-      url: '/editor/save',
+      url: '/dashboard/save',
       success: function() {
         App.preview();
       },
@@ -164,7 +164,7 @@ var App = {
     $.ajax({
       type: 'post',
       data: { title: title },
-      url: '/editor/load',
+      url: '/dashboard/load',
       success: function(page) {
         ['html','css','js','json'].forEach(function(lang) {
           if (typeof page[lang] != 'undefined')
