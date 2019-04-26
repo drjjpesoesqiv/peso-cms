@@ -2,10 +2,6 @@ html
   include head.pug
 
   body
-    select(id="themes_selections_proto",style="display:none;")
-      each theme in config.themes
-        option(value=theme)= theme
-
     #container
       #topPanel
       #content
@@ -19,23 +15,11 @@ html
           iframe#preview(src="")
           textarea#iconPanel
 
-          #browserPanel(style="display:none;")
+          #browserPanel(class="hide")
             #toolbar
               input#browser_url(type="text",size=64)
               button#browser_go(onclick="Browser.go()") GO
             iframe#browser_window(src="")
 
-          #options_overlay(style="display:none;")
+          #options_overlay(class="hide")
             form#options_form
-              p
-                label html
-                select#options_theme_html(onchange="App.selectTheme(this, 'html')")
-              p
-                label css
-                select#options_theme_css(onchange="App.selectTheme(this, 'css')")
-              p
-                label js
-                select#options_theme_js(onchange="App.selectTheme(this, 'js')")
-              p
-                label json
-                select#options_theme_json(onchange="App.selectTheme(this, 'json')")

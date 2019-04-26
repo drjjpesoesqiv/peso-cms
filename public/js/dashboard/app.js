@@ -24,16 +24,16 @@ var App = {
   initEditors: function() {
     var thisApp = this;
     ['html','css','js','json'].forEach(function(lang) {
-      thisApp.editors[lang] = new Editor('textarea_' + lang, lang, Options.getTheme(lang));
+      thisApp.editors[lang] = new Editor('textarea_' + lang, lang);
     });
   },
 
   /*
    *
    */
-  selectTheme: function(el, lang) {
-    Options.setTheme(lang, el.value);
-    App.editors[lang].setTheme(el.value);
+  selectTheme: function(lang, theme) {
+    Options.setTheme(lang, theme);
+    App.editors[lang].setTheme(theme);
   },
 
   /*
@@ -181,11 +181,6 @@ var App = {
 }
 
 $(function() {
-  ['html','css','js','json'].forEach(function(lang) {
-    $('#options_theme_' + lang).html(themes.getThemesAsOptionsHtml());
-    $('#options_theme_' + lang).val(Options.getTheme(lang) || 'default');
-  });
-
   App.init();
 
   let active = 1;
@@ -203,4 +198,25 @@ $(function() {
   toolbar.addButton('json', function() { App.toggleLang('json') }, active);
   toolbar.addButton('<i class="fas fa-globe-americas"></i>', App.toggleBrowserPanel);
   toolbar.addButton('I', App.toggleIconPanel, active);
+
+  ['html','css','js','json'].forEach(function(lang) {
+    var select = document.createElement('select');
+    select.id = 'options_theme_' + lang;
+    select.innerHTML = themes.getThemesAsOptionsHtml();
+    select.value = Options.getTheme(lang) || themes.getRandomTheme();
+    select.onchange = function() {
+      App.selectTheme(lang, select.value);
+    }
+
+    let label = document.createElement('label');
+    label.innerText = lang;
+
+    let p = document.createElement('p');
+    p.appendChild(label);
+    p.appendChild(select);
+
+    select.dispatchEvent(new Event("change"));
+
+    document.getElementById('options_overlay').appendChild(p);
+  });
 });

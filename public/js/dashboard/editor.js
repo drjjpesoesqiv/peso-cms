@@ -1,12 +1,9 @@
 /*
  *
  */
-var Editor = function(textAreaId, syntax, theme) {
+var Editor = function(textAreaId, syntax) {
   this.textAreaId = textAreaId;
   this.mirror = null;
-
-  if (typeof theme == 'undefined' || theme == null)
-    theme = themes.getRandomTheme();
 
   switch (syntax) {
     case 'html':
@@ -18,13 +15,13 @@ var Editor = function(textAreaId, syntax, theme) {
       break;
   }
 
-  this.init(syntax, theme);
+  this.init(syntax);
 }
 Editor.prototype = {
   /*
    *
    */
-  init: function(syntax, theme) {
+  init: function(syntax) {
     this.mirror = CodeMirror.fromTextArea(document.getElementById(this.textAreaId), {
       lineNumbers: true,
       matchBrackets: true,
@@ -33,7 +30,6 @@ Editor.prototype = {
         globalVars: true
       },
       styleActiveLine: true,
-      theme: theme,
       htmlMode: (syntax == 'xml') ? true : false,
       extraKeys: {
         "Alt-F": function(cm) {
