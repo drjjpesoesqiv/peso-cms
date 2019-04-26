@@ -33,7 +33,7 @@ var App = {
    */
   selectTheme: function(el, lang) {
     Options.setTheme(lang, el.value);
-    this.editors[lang].setTheme(el.value);
+    App.editors[lang].setTheme(el.value);
   },
 
   /*
@@ -46,16 +46,14 @@ var App = {
   /*
    *
    */
-  toggleLang: function(el, lang) {
-    $(el).toggleClass('active');
-    this.editors[lang].toggle();
+  toggleLang: function(lang) {
+    App.editors[lang].toggle();
   },
 
   /*
    *
    */
-  toggleLeftPanels: function(el) {
-    $(el).toggleClass('active');
+  toggleLeftPanels: function() {
     $('#leftPanels').toggle();
 
     var rightBasis = $('#leftPanels').is(':hidden') ? '100%' : '50%';
@@ -65,8 +63,7 @@ var App = {
   /*
    *
    */
-  toggleRightPanels: function(el) {
-    $(el).toggleClass('active');
+  toggleRightPanels: function() {
     $('#rightPanels').toggle();
     
     var leftBasis = $('#rightPanels').is(':hidden') ? '100%' : '50%';
@@ -76,16 +73,14 @@ var App = {
   /*
    *
    */
-  toggleIconPanel: function(el) {
-    $(el).toggleClass('active');
+  toggleIconPanel: function() {
     $('#iconPanel').toggle();
   },
 
   /*
    *
    */
-  toggleBrowserPanel: function(el) {
-    $(el).toggleClass('active');
+  toggleBrowserPanel: function() {
     $('#browserPanel').toggle();
   },
 
@@ -93,14 +88,14 @@ var App = {
    *
    */
   preview: function() {
-    var jsonCode = this.editors['json'].getValue();
+    var jsonCode = App.editors['json'].getValue();
     if (jsonCode.length == 0)
       jsonCode = '{}';
 
-    let html = this.editors['html'].getValue();
+    let html = App.editors['html'].getValue();
     let json = "<script>var jsonData = " + jsonCode  + "</script>";
-    let css  = '<style>' + this.editors['css'].getValue() + '</style>';
-    let js   = '<script>' + this.editors['js'].getValue() + '</script>';
+    let css  = '<style>' + App.editors['css'].getValue() + '</style>';
+    let js   = '<script>' + App.editors['js'].getValue() + '</script>';
   
     $('#preview').removeAttr('src');
     $('#preview').attr('srcdoc', App.preview_header + css + html + json + js + App.preview_footer);
@@ -112,10 +107,10 @@ var App = {
   new: function() {
     $('#title').val('');
 
-    this.editors['json'].setValue('');
-    this.editors['html'].setValue('');
-    this.editors['css'].setValue('');
-    this.editors['js'].setValue('');
+    App.editors['json'].setValue('');
+    App.editors['html'].setValue('');
+    App.editors['css'].setValue('');
+    App.editors['js'].setValue('');
 
     $('#iconPanel').val('');
   
@@ -129,10 +124,10 @@ var App = {
    */
   save: function() {
     var temp = {
-      json: this.editors['json'].getValue(),
-      html: this.editors['html'].getValue(),
-      css:  this.editors['css'].getValue(),
-      js: this.editors['js'].getValue(),
+      json: App.editors['json'].getValue(),
+      html: App.editors['html'].getValue(),
+      css:  App.editors['css'].getValue(),
+      js: App.editors['js'].getValue(),
       icon: $('#iconPanel').val()
     };
 
@@ -164,7 +159,7 @@ var App = {
    *
    */
   load: function() {
-    var thisApp = this;
+    var thisApp = App;
     var title = $('#title').val();
     $.ajax({
       type: 'post',
@@ -192,4 +187,20 @@ $(function() {
   });
 
   App.init();
+
+  let active = 1;
+  toolbar.addButton('NEW', App.new);
+  toolbar.addButton('OPTIONS', App.toggleOptions);
+  toolbar.addButton('PREVIEW', App.preview);
+  toolbar.addButton('SAVE', App.save);
+  toolbar.addButton('LOAD', App.load);
+  toolbar.addInput('title');
+  toolbar.addButton('L', App.toggleLeftPanels, active);
+  toolbar.addButton('R', App.toggleRightPanels, active);
+  toolbar.addButton('html', function() { App.toggleLang('html') }, active);
+  toolbar.addButton('css', function() { App.toggleLang('css') }, active);
+  toolbar.addButton('js', function() { App.toggleLang('js') }, active);
+  toolbar.addButton('json', function() { App.toggleLang('json') }, active);
+  toolbar.addButton('B', App.toggleBrowserPanel);
+  toolbar.addButton('I', App.toggleIconPanel, active);
 });
