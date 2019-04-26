@@ -189,18 +189,18 @@ $(function() {
   App.init();
 
   let active = 1;
-  toolbar.addButton('NEW', App.new);
-  toolbar.addButton('OPTIONS', App.toggleOptions);
-  toolbar.addButton('PREVIEW', App.preview);
-  toolbar.addButton('SAVE', App.save);
-  toolbar.addButton('LOAD', App.load);
+  toolbar.addButton('<i class="fas fa-file"></i>', App.new);
+  toolbar.addButton('<i class="fas fa-cog"></i>', App.toggleOptions);
+  toolbar.addButton('<i class="fas fa-bug"></i>', App.preview);
+  toolbar.addButton('<i class="fas fa-save"></i>', App.save);
+  toolbar.addButton('<i class="fas fa-file-upload"></i>', App.load);
   toolbar.addInput('title');
-  toolbar.addButton('L', App.toggleLeftPanels, active);
-  toolbar.addButton('R', App.toggleRightPanels, active);
+  toolbar.addButton('<i class="fas fa-caret-square-left"></i>', App.toggleLeftPanels, active);
+  toolbar.addButton('<i class="fas fa-caret-square-right"></i>', App.toggleRightPanels, active);
   toolbar.addButton('html', function() { App.toggleLang('html') }, active);
   toolbar.addButton('css', function() { App.toggleLang('css') }, active);
   toolbar.addButton('js', function() { App.toggleLang('js') }, active);
   toolbar.addButton('json', function() { App.toggleLang('json') }, active);
-  toolbar.addButton('B', App.toggleBrowserPanel);
+  toolbar.addButton('<i class="fas fa-globe-americas"></i>', App.toggleBrowserPanel);
   toolbar.addButton('I', App.toggleIconPanel, active);
 });

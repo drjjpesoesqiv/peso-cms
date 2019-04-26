@@ -4,7 +4,7 @@ var toolbar = {
   addButton: function(label, callback, active) {
     var btn =  document.createElement('button');
     btn.className = (active) ? 'active' : '';
-    btn.innerText = label;
+    btn.innerHTML = label;
     btn.onclick = function() {
       btn.classList.toggle('active');
       callback();
