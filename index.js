@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 const cred = require('./cred.js');
-const templatePage = require('./templates/page/page.js');
 
 const express = require('express');
 const session = require('express-session');
@@ -45,7 +44,7 @@ app.get('/', (req, res) => {
       var html = getHTMLFile('index');
       res.send(html);
     } else {
-      res.send('' + templatePage.compile(doc));
+      res.render('templates/page', doc);
     }
   }).catch(function(err) {
     var html = getHTMLFile('index');
@@ -61,7 +60,7 @@ app.get('/:page', (req, res) => {
     if (doc == null)
       res.sendStatus(404);
     else
-      res.send('' + templatePage.compile(doc));
+      res.render('templates/page', doc);
   }).catch(function(err) {
     res.sendStatus(404);
   });
