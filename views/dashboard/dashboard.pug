@@ -1,0 +1,60 @@
+html
+  include head.pug
+
+  body
+    select(id="themes_selections_proto",style="display:none;")
+      each theme in config.themes
+        option(value=theme)= theme
+
+    #container
+      #topPanel
+        button(onclick="App.new()") NEW
+        button(onclick="App.toggleOptions()") OPTIONS
+        button(onclick="App.preview()") PREVIEW
+        button(onclick="App.save()") SAVE
+        button(onclick="App.load()") LOAD
+
+        input#title(type="text", placeholder="title")
+
+        button(onclick="App.toggleLeftPanels(this);" class="active") L
+        button(onclick="App.toggleRightPanels(this);" class="active") R
+
+        button(onclick="App.toggleLang(this, 'html')" class="active") html
+        button(onclick="App.toggleLang(this, 'json')" class="active") json
+        button(onclick="App.toggleLang(this, 'css')" class="active") css
+        button(onclick="App.toggleLang(this, 'js')" class="active") js
+
+        button(onclick="App.toggleBrowserPanel(this)") B
+        button(onclick="App.toggleIconPanel(this)" class="active") I
+
+      #content
+        #leftPanels
+          textarea#textarea_html
+          textarea#textarea_css
+          textarea#textarea_js
+          textarea#textarea_json
+
+        #rightPanels
+          iframe#preview(src="")
+          textarea#iconPanel
+
+          #browserPanel(style="display:none;")
+            #toolbar
+              input#browser_url(type="text",size=64)
+              button#browser_go(onclick="Browser.go()") GO
+            iframe#browser_window(src="")
+
+          #options_overlay(style="display:none;")
+            form#options_form
+              p
+                label html
+                select#options_theme_html(onchange="App.selectTheme(this, 'html')")
+              p
+                label css
+                select#options_theme_css(onchange="App.selectTheme(this, 'css')")
+              p
+                label js
+                select#options_theme_js(onchange="App.selectTheme(this, 'js')")
+              p
+                label json
+                select#options_theme_json(onchange="App.selectTheme(this, 'json')")

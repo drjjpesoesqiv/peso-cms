@@ -10,7 +10,12 @@ var App = {
    *
    */
   init: function() {
+    this.initDashboard();
     this.initEditors();
+  },
+
+  initDashboard: function() {
+    
   },
 
   /*

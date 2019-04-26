@@ -1,0 +1,33 @@
+head
+  title dashboard
+  meta(name="viewport", content="width=device-width, initial-scale=1")
+
+  link(rel="stylesheet", href="../css/dashboard.css")
+
+  script(src="../js/jquery-3.4.0.min.js")
+  script(src="../js/dashboard/app.js")
+  script(src="../js/dashboard/browser.js")
+  script(src="../js/dashboard/editor.js")
+  script(src="../js/dashboard/options.js")
+  script(src="../js/dashboard/themes.js")
+
+  link(rel="stylesheet", href="../codemirror/lib/codemirror.css")
+  link(rel="stylesheet", href="../codemirror/addon/hint/show-hint.css")
+  link(rel="stylesheet", href="../codemirror/addon/display/fullscreen.css")
+
+  script(src="../codemirror/lib/codemirror.js")
+  script(src="../codemirror/addon/display/fullscreen.js")
+  script(src="../codemirror/addon/edit/matchbrackets.js")
+  script(src="../codemirror/addon/hint/css-hint.js")
+  script(src="../codemirror/addon/hint/html-hint.js")
+  script(src="../codemirror/addon/hint/show-hint.js")
+  script(src="../codemirror/addon/hint/javascript-hint.js")
+  script(src="../codemirror/addon/selection/active-line.js")
+  script(src="../codemirror/mode/css/css.js")
+  script(src="../codemirror/mode/javascript/javascript.js")
+  script(src="../codemirror/mode/xml/xml.js")
+
+  each theme in config.themes
+    link(rel="stylesheet", href="../codemirror/theme/" + theme + ".css")
+
+  script themes.list = !{JSON.stringify(config.themes)}

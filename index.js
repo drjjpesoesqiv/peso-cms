@@ -7,6 +7,7 @@ const express = require('express');
 const session = require('express-session');
 const app = express();
 
+app.set('view engine', 'pug')
 app.set('trust proxy', 1);
 app.use(session({
   secret: cred.express.sessionSecret,

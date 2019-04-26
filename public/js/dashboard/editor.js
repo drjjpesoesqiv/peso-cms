@@ -6,7 +6,7 @@ var Editor = function(textAreaId, syntax, theme) {
   this.mirror = null;
 
   if (typeof theme == 'undefined' || theme == null)
-    theme = 'default';
+    theme = themes.getRandomTheme();
 
   switch (syntax) {
     case 'html':

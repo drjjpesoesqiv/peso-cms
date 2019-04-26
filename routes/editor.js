@@ -25,10 +25,10 @@ function checkAdmin(req) {
  *
  */
 router.get('/dashboard', (req, res) => {
-  let html = ( ! checkAdmin(req, res))
-    ? fs.readFileSync('views/login.html', 'utf8')
-    : fs.readFileSync('views/editor.html', 'utf8');
-  res.send(html);
+  let template = ( ! checkAdmin(req, res))
+    ? 'login'
+    : 'dashboard';
+  res.render('dashboard/' + template, require('../lib/dashboard.js'));
 });
 
 router.post('/login', (req, res) => {
