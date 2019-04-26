@@ -71,11 +71,16 @@ app.get('/:page', (req, res) => {
  *
  */
 app.get('/:page/:format', (req,res) => {
+  if (['css','js','json'].indexOf(req.params.format) == -1)
+    res.send(404);
+
   mongo.getByTitle('pages', req.params['page']).then(function(doc) {
     if (doc == null || typeof doc[req.params.format] == undefined)
       res.sendStatus(404);
-    else
+    else {
+      res.type(req.params.format);
       res.send(doc[req.params.format]);
+    }
   }).catch(function(err) {
     res.sendStatus(404);
   });
