@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
   let template = ( ! checkAdmin(req, res))
     ? 'login'
     : 'dashboard';
-  res.render('dashboard/' + template, require('../lib/dashboard.js'));
+  res.render('dashboard/' + template, require('../lib/dashboardConfig.js'));
 });
 
 router.post('/login', (req, res) => {
