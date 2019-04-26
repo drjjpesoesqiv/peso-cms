@@ -11,5 +11,5 @@ pulls a compiled HTML document
 ```
 pulls a specific section of the HTML document. `/worldclock/css` would pull the CSS for the document worldclock.
 
-![screenshot](https://res.cloudinary.com/hl2vrcvpj/image/upload/v1556130081/peso-cms/Capture.jpg)
+![screenshot](https://res.cloudinary.com/hl2vrcvpj/image/upload/v1556299516/peso-cms/Capture3.jpg)
 ![screenshot](https://res.cloudinary.com/hl2vrcvpj/image/upload/v1556130081/peso-cms/Capture2.jpg)
