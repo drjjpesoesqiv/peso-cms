@@ -40,15 +40,12 @@ function getHTMLFile(f)
  */
 app.get('/', (req, res) => {
   mongo.getByTitle('pages', 'index').then(function(doc) {
-    if (doc == null) {
-      var html = getHTMLFile('index');
-      res.send(html);
-    } else {
+    if (doc == null)
+      res.render('default');
+    else
       res.render('templates/page', doc);
-    }
   }).catch(function(err) {
-    var html = getHTMLFile('index');
-    res.send(html);
+    res.render('default');
   });
 });
 
