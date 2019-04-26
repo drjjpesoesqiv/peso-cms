@@ -30,14 +30,6 @@ app.locals.mongo = mongo
 /*
  *
  */
-function getHTMLFile(f)
-{
-  return fs.readFileSync(`views/${f}.html`, 'utf8');
-}
-
-/*
- *
- */
 app.get('/', (req, res) => {
   mongo.getByTitle('pages', 'index').then(function(doc) {
     if (doc == null)
