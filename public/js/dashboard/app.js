@@ -15,7 +15,7 @@ var App = {
   },
 
   initDashboard: function() {
-    
+
   },
 
   /*
@@ -187,7 +187,7 @@ var App = {
 
 $(function() {
   ['html','css','js','json'].forEach(function(lang) {
-    $('#options_theme_' + lang).html($('#theme_selections_proto').html());
+    $('#options_theme_' + lang).html(themes.getThemesAsOptionsHtml());
     $('#options_theme_' + lang).val(Options.getTheme(lang) || 'default');
   });
 
