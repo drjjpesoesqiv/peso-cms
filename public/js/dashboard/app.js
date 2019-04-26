@@ -39,14 +39,7 @@ var App = {
   /*
    *
    */
-  toggleOptions: function() {
-    $('#options_overlay').toggle();
-  },
-
-  /*
-   *
-   */
-  toggleLang: function(lang) {
+  toggleEditor: function(lang) {
     App.editors[lang].toggle();
   },
 
@@ -68,20 +61,6 @@ var App = {
     
     var leftBasis = $('#rightPanels').is(':hidden') ? '100%' : '50%';
     $('#leftPanels').css({'flex-basis': leftBasis,'max-width': leftBasis});
-  },
-
-  /*
-   *
-   */
-  toggleIconPanel: function() {
-    $('#iconPanel').toggle();
-  },
-
-  /*
-   *
-   */
-  toggleBrowserPanel: function() {
-    $('#browserPanel').toggle();
   },
 
   /*
@@ -183,22 +162,27 @@ var App = {
 $(function() {
   App.init();
 
-  let active = 1;
   toolbar.addButton('<i class="fas fa-file"></i>', App.new);
-  toolbar.addButton('<i class="fas fa-cog"></i>', App.toggleOptions);
+  Panels.addPanel('optionsPanel', '<i class="fas fa-cog"></i>', null, false);
   toolbar.addButton('<i class="fas fa-bug"></i>', App.preview);
   toolbar.addButton('<i class="fas fa-save"></i>', App.save);
   toolbar.addButton('<i class="fas fa-file-upload"></i>', App.load);
   toolbar.addInput('title');
-  toolbar.addButton('<i class="fas fa-caret-square-left"></i>', App.toggleLeftPanels, active);
-  toolbar.addButton('<i class="fas fa-caret-square-right"></i>', App.toggleRightPanels, active);
-  toolbar.addButton('html', function() { App.toggleLang('html') }, active);
-  toolbar.addButton('css', function() { App.toggleLang('css') }, active);
-  toolbar.addButton('js', function() { App.toggleLang('js') }, active);
-  toolbar.addButton('json', function() { App.toggleLang('json') }, active);
-  toolbar.addButton('<i class="fas fa-globe-americas"></i>', App.toggleBrowserPanel);
-  toolbar.addButton('I', App.toggleIconPanel, active);
+  toolbar.addButton('<i class="fas fa-caret-square-left"></i>', App.toggleLeftPanels, true);
+  toolbar.addButton('<i class="fas fa-caret-square-right"></i>', App.toggleRightPanels, true);
 
+  // add language panels
+  ['html','css','js','json'].forEach(function(lang) {
+    Panels.addPanel('textarea_' + lang, lang, function() {
+      App.toggleEditor(lang);
+    }, true);
+  });
+
+  // add browser panel
+  Panels.addPanel('browserPanel', '<i class="fas fa-globe-americas"></i>', null, false);
+  Panels.addPanel('iconPanel', 'I', null, false);
+
+  // options theme selectors
   ['html','css','js','json'].forEach(function(lang) {
     var select = document.createElement('select');
     select.id = 'options_theme_' + lang;
@@ -217,6 +201,6 @@ $(function() {
 
     select.dispatchEvent(new Event("change"));
 
-    document.getElementById('options_overlay').appendChild(p);
+    document.getElementById('optionsPanel').appendChild(p);
   });
 });

@@ -75,7 +75,7 @@ body {
   flex-shrink: 1;
 }
 
-#options_overlay {
+#optionsPanel {
   background-color: skyblue;
   color: #111;
   padding: 16px;

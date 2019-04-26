@@ -1,15 +1,19 @@
 var toolbar = {
   elId: "topPanel",
 
-  addButton: function(label, callback, active) {
+  addButton: function(label, callback, toggle, active) {
     var btn =  document.createElement('button');
-    btn.className = (active) ? 'active' : '';
+    btn.className = (toggle) ? 'active' : '';
     btn.innerHTML = label;
     btn.onclick = function() {
-      btn.classList.toggle('active');
+      console.log('hello');
+      if (toggle)
+        btn.classList.toggle('active');
       callback();
     };
     document.getElementById(this.elId).append(btn);
+    if (toggle && active === false)
+      btn.dispatchEvent(new Event('click'));
   },
 
   addInput: function(id) {

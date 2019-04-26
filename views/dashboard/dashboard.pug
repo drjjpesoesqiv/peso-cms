@@ -15,11 +15,11 @@ html
           iframe#preview(src="")
           textarea#iconPanel
 
-          #browserPanel(class="hide")
+          #browserPanel
             #toolbar
-              input#browser_url(type="text",size=64)
+              input#browser_url(type="text", size=64, value="/index")
               button#browser_go(onclick="Browser.go()") GO
-            iframe#browser_window(src="")
+            iframe#browser_window(src="/index")
 
-          #options_overlay(class="hide")
+          #optionsPanel
             form#options_form
