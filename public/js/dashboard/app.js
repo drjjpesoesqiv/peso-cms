@@ -146,8 +146,7 @@ var App = {
       url: '/dashboard/load',
       success: function(page) {
         ['html','css','js','json'].forEach(function(lang) {
-          if (typeof page[lang] != 'undefined')
-            thisApp.editors[lang].setValue(page[lang]);
+          thisApp.editors[lang].setValue((typeof page[lang] != 'undefined') ? page[lang] : '');
         });
 
         if (typeof page.icon != 'undefined')
